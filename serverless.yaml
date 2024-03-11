@@ -1,0 +1,26 @@
+service: finlay-backend
+
+useDotenv: true
+
+plugins:
+  - serverless-offline
+
+
+custom:
+  serverless-offline:
+    httpPort: 9900
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+functions:
+  main:
+    handler: dist/serverless.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
