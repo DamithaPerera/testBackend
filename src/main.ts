@@ -7,7 +7,6 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'http://13.60.12.139',
       'https://finlay-psi.vercel.app',
       'https://finlay-backend.vercel.app',
     ],
