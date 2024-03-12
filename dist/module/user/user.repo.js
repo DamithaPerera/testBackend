@@ -17,12 +17,21 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("mongoose");
 const mongoose_2 = require("@nestjs/mongoose");
 const user_model_1 = require("../../model/user.model");
+const role_model_1 = require("../../model/role.model");
+const roles_enum_1 = require("../../common/enums/roles.enum");
 let UserRepo = class UserRepo {
-    constructor(userModel) {
+    constructor(userModel, roleModel) {
         this.userModel = userModel;
+        this.roleModel = roleModel;
         this.findUserByEmail = async (email) => {
             return this.userModel
                 .findOne({ email: { $regex: email, $options: 'i' } })
+                .populate({
+                path: 'roleId',
+                model: 'Role',
+                select: 'name id',
+                foreignField: 'id',
+            })
                 .lean();
         };
         this.createNewUser = async (data) => {
@@ -42,13 +51,21 @@ let UserRepo = class UserRepo {
         this.forgotPassword = async (forgotPasswordDto) => {
             return this.userModel.findOneAndUpdate({ email: forgotPasswordDto.email }, { password: forgotPasswordDto.newPassword });
         };
+        this.createRole = async () => {
+            return this.roleModel.create({
+                name: roles_enum_1.RolesEnum.HIRING_MANAGER,
+            });
+        };
         this.userModel = userModel;
+        this.roleModel = roleModel;
     }
 };
 UserRepo = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_2.InjectModel)(user_model_1.User.name)),
-    __metadata("design:paramtypes", [mongoose_1.Model])
+    __param(1, (0, mongoose_2.InjectModel)(role_model_1.Role.name)),
+    __metadata("design:paramtypes", [mongoose_1.Model,
+        mongoose_1.Model])
 ], UserRepo);
 exports.UserRepo = UserRepo;
 //# sourceMappingURL=user.repo.js.map

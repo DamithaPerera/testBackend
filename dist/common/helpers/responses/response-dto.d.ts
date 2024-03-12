@@ -14,4 +14,7 @@ declare class ErrorDto extends ResponseDto {
 declare class SuccessDto extends ResponseDto {
     constructor(response: any, data: any);
 }
-export { SuccessDto, InternalErrorDto, ErrorDto };
+declare class SuccessPaginationDto extends ResponseDto {
+    constructor(response: any, data: any);
+}
+export { SuccessDto, InternalErrorDto, ErrorDto, SuccessPaginationDto };

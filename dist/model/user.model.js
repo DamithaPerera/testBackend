@@ -34,9 +34,9 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({ type: String, ref: 'Role' }),
     __metadata("design:type", String)
-], User.prototype, "role", void 0);
+], User.prototype, "roleId", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)

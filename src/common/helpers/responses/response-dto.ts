@@ -35,4 +35,11 @@ class SuccessDto extends ResponseDto {
   }
 }
 
-export { SuccessDto, InternalErrorDto, ErrorDto };
+class SuccessPaginationDto extends ResponseDto {
+  constructor(response, data) {
+    super(response, data);
+    this.success = true;
+  }
+}
+
+export { SuccessDto, InternalErrorDto, ErrorDto, SuccessPaginationDto };

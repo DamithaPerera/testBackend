@@ -25,6 +25,7 @@ export class UserService {
       );
     }
     signupDtoDto.password = await this.encryptPassword(signupDtoDto.password);
+    signupDtoDto.roleId = 'c25c34e8-1228-469c-a76e-59282214f89d';
     return this.userRepo.createNewUser(signupDtoDto);
   }
 
@@ -46,6 +47,7 @@ export class UserService {
       email: token.email,
       id: token.id,
       name: token.name,
+      role: data.roleId,
       accessToken: token.accessToken,
     };
   }
@@ -110,6 +112,7 @@ export class UserService {
   }
 
   async ssoLoginService(ssoLoginDto: SsoLoginDto) {
+    ssoLoginDto.roleId = 'c25c34e8-1228-469c-a76e-59282214f89d';
     let data = await this.userRepo.findUserByEmail(ssoLoginDto.email);
 
     if (!data) {
@@ -123,5 +126,10 @@ export class UserService {
       name: token.name,
       accessToken: token.accessToken,
     };
+  }
+
+  // TEMP
+  async createRole() {
+    return this.userRepo.createRole();
   }
 }

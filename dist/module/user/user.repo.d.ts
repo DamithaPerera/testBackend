@@ -26,9 +26,11 @@ import { Model } from 'mongoose';
 import { ChangePasswordDto } from './dto/changePassword.dto';
 import { ForgotPasswordDto } from './dto/forgotPassword.dto';
 import { User, UserDocument } from '../../model/user.model';
+import { Role, RoleDocument } from '../../model/role.model';
 export declare class UserRepo {
     private userModel;
-    constructor(userModel: Model<UserDocument>);
+    private roleModel;
+    constructor(userModel: Model<UserDocument>, roleModel: Model<RoleDocument>);
     findUserByEmail: (email: string) => Promise<import("mongoose").FlattenMaps<UserDocument> & {
         _id: import("mongoose").Types.ObjectId;
     }>;
@@ -42,6 +44,9 @@ export declare class UserRepo {
         _id: import("mongoose").Types.ObjectId;
     }>;
     forgotPassword: (forgotPasswordDto: ForgotPasswordDto) => Promise<import("mongoose").Document<unknown, {}, UserDocument> & User & Document & {
+        _id: import("mongoose").Types.ObjectId;
+    }>;
+    createRole: () => Promise<import("mongoose").Document<unknown, {}, RoleDocument> & Role & Document & {
         _id: import("mongoose").Types.ObjectId;
     }>;
 }

@@ -3,5 +3,6 @@ export declare class SsoLoginDto {
     name: string;
     image: string;
     googleSSO: boolean;
-    accessToken: boolean;
+    accessToken: string;
+    roleId: string;
 }

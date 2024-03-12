@@ -40,6 +40,7 @@ export declare class UserService {
         email: string;
         id: string;
         name: string;
+        role: string;
         accessToken: string;
     }>;
     addTokensToUser: (user: any) => Promise<import("mongoose").FlattenMaps<import("../../model/user.model").UserDocument> & {
@@ -59,5 +60,8 @@ export declare class UserService {
         id: string;
         name: string;
         accessToken: string;
+    }>;
+    createRole(): Promise<import("mongoose").Document<unknown, {}, import("../../model/role.model").RoleDocument> & import("../../model/role.model").Role & Document & {
+        _id: import("mongoose").Types.ObjectId;
     }>;
 }

@@ -31,9 +31,12 @@ export declare class JobRoleRepo {
     createJobRoleRepo: (data: object) => Promise<import("mongoose").Document<unknown, {}, JobRoleDocument> & JobRole & Document & {
         _id: import("mongoose").Types.ObjectId;
     }>;
-    listAllJobRoleRepo: (limit: number, skip: number) => Promise<(import("mongoose").Document<unknown, {}, JobRoleDocument> & JobRole & Document & {
-        _id: import("mongoose").Types.ObjectId;
-    })[]>;
+    listAllJobRoleRepo: (limit: number, skip: number) => Promise<{
+        total: number;
+        data: (import("mongoose").FlattenMaps<JobRoleDocument> & {
+            _id: import("mongoose").Types.ObjectId;
+        })[];
+    }>;
     GetOneJobRoleRepo: (jobRoleNumber: string) => Promise<import("mongoose").Document<unknown, {}, JobRoleDocument> & JobRole & Document & {
         _id: import("mongoose").Types.ObjectId;
     }>;

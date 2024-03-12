@@ -34,7 +34,12 @@ __decorate([
 ], SsoLoginDto.prototype, "googleSSO", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
-    __metadata("design:type", Boolean)
+    __metadata("design:type", String)
 ], SsoLoginDto.prototype, "accessToken", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], SsoLoginDto.prototype, "roleId", void 0);
 exports.SsoLoginDto = SsoLoginDto;
 //# sourceMappingURL=ssoLogin.dto.js.map

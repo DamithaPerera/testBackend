@@ -13,4 +13,5 @@ export declare class UserController {
     ssoLogin(ssoLoginDto: SsoLoginDto): Promise<SuccessDto>;
     changePassword(changePasswordDto: ChangePasswordDto): Promise<SuccessDto>;
     forgotPassword(forgotPasswordDto: ForgotPasswordDto): Promise<SuccessDto>;
+    createRole(): Promise<SuccessDto>;
 }

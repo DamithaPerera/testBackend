@@ -32,9 +32,12 @@ export declare class JobRoleService {
     createJobRoleService(jobRoleCreateDto: JobRoleCreateDto): Promise<import("mongoose").Document<unknown, {}, import("../../model/jobRole.model").JobRoleDocument> & import("../../model/jobRole.model").JobRole & Document & {
         _id: import("mongoose").Types.ObjectId;
     }>;
-    listAllJobRoleService(page: number, limit: number): Promise<(import("mongoose").Document<unknown, {}, import("../../model/jobRole.model").JobRoleDocument> & import("../../model/jobRole.model").JobRole & Document & {
-        _id: import("mongoose").Types.ObjectId;
-    })[]>;
+    listAllJobRoleService(page: number, limit: number): Promise<{
+        total: number;
+        data: (import("mongoose").FlattenMaps<import("../../model/jobRole.model").JobRoleDocument> & {
+            _id: import("mongoose").Types.ObjectId;
+        })[];
+    }>;
     GetOneJobRoleService(jobRoleNumber: string): Promise<import("mongoose").Document<unknown, {}, import("../../model/jobRole.model").JobRoleDocument> & import("../../model/jobRole.model").JobRole & Document & {
         _id: import("mongoose").Types.ObjectId;
     }>;

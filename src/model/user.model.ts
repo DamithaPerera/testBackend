@@ -22,8 +22,8 @@ export class User {
   @Prop()
   password: string;
 
-  @Prop()
-  role: string;
+  @Prop({ type: String, ref: 'Role' })
+  roleId: string;
 
   @Prop()
   accessToken: string;

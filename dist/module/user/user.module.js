@@ -15,6 +15,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const axios_1 = require("@nestjs/axios");
 const user_model_1 = require("../../model/user.model");
 const jobRole_model_1 = require("../../model/jobRole.model");
+const role_model_1 = require("../../model/role.model");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
@@ -24,6 +25,7 @@ UserModule = __decorate([
             mongoose_1.MongooseModule.forFeature([
                 { name: user_model_1.User.name, schema: user_model_1.UserSchema },
                 { name: jobRole_model_1.JobRole.name, schema: jobRole_model_1.JobRoleSchema },
+                { name: role_model_1.Role.name, schema: role_model_1.RoleSchema },
             ]),
         ],
         controllers: [user_controller_1.UserController],

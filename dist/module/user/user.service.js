@@ -76,6 +76,7 @@ let UserService = class UserService {
             throw new common_1.BadRequestException(new response_dto_1.ErrorDto(messages_1.ERROR_MESSAGES.EMAIL_ALREADY_EXISTS, null));
         }
         signupDtoDto.password = await this.encryptPassword(signupDtoDto.password);
+        signupDtoDto.roleId = 'c25c34e8-1228-469c-a76e-59282214f89d';
         return this.userRepo.createNewUser(signupDtoDto);
     }
     async login(loginDtoDto) {
@@ -89,6 +90,7 @@ let UserService = class UserService {
             email: token.email,
             id: token.id,
             name: token.name,
+            role: data.roleId,
             accessToken: token.accessToken,
         };
     }
@@ -110,6 +112,7 @@ let UserService = class UserService {
         return this.userRepo.forgotPassword(forgotPasswordDto);
     }
     async ssoLoginService(ssoLoginDto) {
+        ssoLoginDto.roleId = 'c25c34e8-1228-469c-a76e-59282214f89d';
         let data = await this.userRepo.findUserByEmail(ssoLoginDto.email);
         if (!data) {
             await this.userRepo.createNewUser(ssoLoginDto);
@@ -122,6 +125,9 @@ let UserService = class UserService {
             name: token.name,
             accessToken: token.accessToken,
         };
+    }
+    async createRole() {
+        return this.userRepo.createRole();
     }
 };
 UserService = __decorate([

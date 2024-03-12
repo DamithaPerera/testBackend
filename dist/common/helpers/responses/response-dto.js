@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorDto = exports.InternalErrorDto = exports.SuccessDto = void 0;
+exports.SuccessPaginationDto = exports.ErrorDto = exports.InternalErrorDto = exports.SuccessDto = void 0;
 class ResponseDto {
     constructor(response, data) {
         this.message = response.message;
@@ -29,4 +29,11 @@ class SuccessDto extends ResponseDto {
     }
 }
 exports.SuccessDto = SuccessDto;
+class SuccessPaginationDto extends ResponseDto {
+    constructor(response, data) {
+        super(response, data);
+        this.success = true;
+    }
+}
+exports.SuccessPaginationDto = SuccessPaginationDto;
 //# sourceMappingURL=response-dto.js.map

@@ -25,12 +25,15 @@ let JobRoleRepo = class JobRoleRepo {
             return this.jobRoleModel.create(data);
         };
         this.listAllJobRoleRepo = async (limit, skip) => {
-            return this.jobRoleModel
+            const total = await this.jobRoleModel.countDocuments();
+            const data = await this.jobRoleModel
                 .find()
                 .sort('-createdAt')
                 .skip(skip)
                 .limit(limit)
-                .select(constant_1.STATIC_VALUES.unwantedFields);
+                .select(constant_1.STATIC_VALUES.unwantedFields)
+                .lean();
+            return { total, data };
         };
         this.GetOneJobRoleRepo = async (jobRoleNumber) => {
             return this.jobRoleModel

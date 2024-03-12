@@ -46,6 +46,10 @@ let UserController = class UserController {
         await this.userService.forgotPassword(forgotPasswordDto);
         return new response_dto_1.SuccessDto(messages_1.SUCCESS_MESSAGES.PASSWORD_CHANGED, null);
     }
+    async createRole() {
+        const data = await this.userService.createRole();
+        return new response_dto_1.SuccessDto(messages_1.SUCCESS_MESSAGES.USER_LOGIN, data);
+    }
 };
 __decorate([
     (0, common_1.Post)('/signup'),
@@ -87,6 +91,13 @@ __decorate([
     __metadata("design:paramtypes", [forgotPassword_dto_1.ForgotPasswordDto]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "forgotPassword", null);
+__decorate([
+    (0, common_1.Post)('/createRole'),
+    (0, common_1.HttpCode)(common_1.HttpStatus.OK.valueOf()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "createRole", null);
 UserController = __decorate([
     (0, common_1.Controller)('v1/user'),
     __metadata("design:paramtypes", [user_service_1.UserService])

@@ -23,5 +23,9 @@ export class SsoLoginDto {
   googleSSO: boolean;
 
   @IsString()
-  accessToken: boolean;
+  accessToken: string;
+
+  @IsOptional()
+  @IsString()
+  roleId: string;
 }

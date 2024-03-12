@@ -46,4 +46,12 @@ export class UserController {
     await this.userService.forgotPassword(forgotPasswordDto);
     return new SuccessDto(SUCCESS_MESSAGES.PASSWORD_CHANGED, null);
   }
+
+  // TEMP
+  @Post('/createRole')
+  @HttpCode(HttpStatus.OK.valueOf())
+  async createRole() {
+    const data = await this.userService.createRole();
+    return new SuccessDto(SUCCESS_MESSAGES.USER_LOGIN, data);
+  }
 }

@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { HttpModule } from '@nestjs/axios';
 import { User, UserSchema } from '../../model/user.model';
 import { JobRole, JobRoleSchema } from '../../model/jobRole.model';
+import { Role, RoleSchema } from '../../model/role.model';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { JobRole, JobRoleSchema } from '../../model/jobRole.model';
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: JobRole.name, schema: JobRoleSchema },
+      { name: Role.name, schema: RoleSchema },
     ]),
   ],
   controllers: [UserController],

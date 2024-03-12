@@ -29,7 +29,7 @@ export declare class User {
     email: string;
     name: string;
     password: string;
-    role: string;
+    roleId: string;
     accessToken: string;
     refreshToken: string;
     googleSSO: boolean;
