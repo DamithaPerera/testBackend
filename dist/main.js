@@ -4,7 +4,16 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const common_1 = require("@nestjs/common");
 async function bootstrap() {
-    const app = await core_1.NestFactory.create(app_module_1.AppModule, { cors: true });
+    const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    app.enableCors({
+        origin: [
+            'https://finlay-client-2isp.vercel.app',
+            'https://finlay-backend.vercel.app',
+        ],
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        credentials: true,
+    });
     app.useGlobalPipes(new common_1.ValidationPipe());
     console.log('hhhh');
     const port = process.env.PORT || 3000;
