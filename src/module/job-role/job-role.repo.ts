@@ -17,7 +17,7 @@ export class JobRoleRepo {
     return this.jobRoleModel.create(data);
   };
 
-  listAllJobRoleRepo = async (limit: number, skip: number) => {
+  listAllJobRoleRepo = async (limit: number, skip: number, page: number) => {
     const total = await this.jobRoleModel.countDocuments();
 
     // Retrieve the documents based on the provided limit and skip parameters
@@ -29,7 +29,7 @@ export class JobRoleRepo {
       .select(STATIC_VALUES.unwantedFields)
       .lean();
 
-    return { total, data };
+    return { total, data, limit, page: page };
   };
 
   GetOneJobRoleRepo = async (jobRoleNumber: string) => {

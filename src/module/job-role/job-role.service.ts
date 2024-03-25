@@ -15,7 +15,7 @@ export class JobRoleService {
 
   async listAllJobRoleService(page: number, limit: number) {
     const skip = (page - 1) * limit;
-    return this.jobRoleRepo.listAllJobRoleRepo(limit, skip);
+    return this.jobRoleRepo.listAllJobRoleRepo(limit, skip, page);
   }
 
   async GetOneJobRoleService(jobRoleNumber: string) {
