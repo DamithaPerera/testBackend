@@ -10,6 +10,11 @@ export class JobRoleCreateDto {
   description: string;
 
   @IsOptional()
+  @IsString()
+  @MinLength(8)
+  richText: string;
+
+  @IsOptional()
   @IsUUID()
   @IsString()
   createdUser: string;

@@ -28,6 +28,7 @@ export declare class JobRole {
     id: string;
     title: string;
     description: string;
+    richText: string;
     skills: string;
     createdUser: string;
     assignedUser: string;

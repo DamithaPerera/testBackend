@@ -47,6 +47,7 @@ let JobRoleRepo = class JobRoleRepo {
                 .findOneAndUpdate({ id: jobRoleNumber }, {
                 title: jobRoleUpdateDto.title,
                 description: jobRoleUpdateDto.description,
+                richText: jobRoleUpdateDto.richText,
             }, { new: true })
                 .select(constant_1.STATIC_VALUES.unwantedFields);
         };

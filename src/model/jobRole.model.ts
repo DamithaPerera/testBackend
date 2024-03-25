@@ -20,6 +20,9 @@ export class JobRole {
   description: string;
 
   @Prop()
+  richText: string;
+
+  @Prop()
   skills: string;
 
   @Prop()

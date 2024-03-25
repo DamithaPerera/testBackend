@@ -1,4 +1,4 @@
-import { IsString, MinLength } from 'class-validator';
+import { IsOptional, IsString, MinLength } from 'class-validator';
 
 export class JobRoleUpdateDto {
   @IsString()
@@ -8,4 +8,9 @@ export class JobRoleUpdateDto {
   @IsString()
   @MinLength(8)
   description: string;
+
+  @IsOptional()
+  @IsString()
+  @MinLength(8)
+  richText: string;
 }

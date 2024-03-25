@@ -50,6 +50,7 @@ export class JobRoleRepo {
         {
           title: jobRoleUpdateDto.title,
           description: jobRoleUpdateDto.description,
+          richText: jobRoleUpdateDto.richText,
         },
         { new: true },
       )
