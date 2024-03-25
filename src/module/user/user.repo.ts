@@ -26,7 +26,7 @@ export class UserRepo {
         select: 'name id',
         foreignField: 'id',
       })
-        .lean();
+      .lean();
   };
 
   createNewUser = async (data: object) => {
